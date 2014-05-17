@@ -1,7 +1,18 @@
+redis-hhl-test
+==============
+
+Some fun with redis' HyperLogLog
 
 
-# With HLL_P 12
+Benchmarks
+----------
 
+Executed on my machine (Intel Core i7 870, Ubuntu 14.04) with different
+values for HLL_P (redis/hyperloglog.c).
+
+With HLL_P 12:
+
+```
 (pypytest){21:40}~/Projekte ➭ pypy hll.py
    Expect     Count   Diff %   Size   Time_Ins  Time_Count
 ==========================================================
@@ -21,10 +32,11 @@
   5000000   5220688     4.41   2928    2.69130     0.00110
  10000000  10086100     0.86   2958    5.21310     0.00100
 100000000  99841236    -0.16   2961   53.88410     0.00131
+```
 
+With HLL_P 14 (default):
 
-# With HLL_P 14 (default)
-
+```
 (pypytest){21:29}~/Projekte ➭ pypy hll.py
    Expect     Count   Diff %   Size   Time_Ins  Time_Count
 ==========================================================
@@ -44,9 +56,11 @@
   5000000   5051128     1.02  10517    2.57685     0.00049
  10000000   9963423    -0.37  10555    5.12876     0.00061
 100000000  99675329    -0.32  10643   52.95699     0.00060
+```
 
-# With HLL_P 15
+With HLL_P 15:
 
+```
 (pypytest){21:39}~/Projekte ➭ pypy hll.py
    Expect     Count   Diff %   Size   Time_Ins  Time_Count
 ==========================================================
@@ -66,10 +80,11 @@
   5000000   5049186     0.98  20544    2.66814     0.00120
  10000000  10047815     0.48  20554    5.26425     0.00116
 100000000  99514288    -0.49  20682   53.12785     0.00112
+```
 
+With HLL_P 16:
 
-# With HLL_P 16
-
+```
 (pypytest){21:30}~/Projekte ➭ pypy hll.py
    Expect     Count   Diff %   Size   Time_Ins  Time_Count
 ==========================================================
@@ -89,4 +104,4 @@
   5000000   5022771     0.46  40464    2.58776     0.00109
  10000000  10006984     0.07  40632    5.15135     0.00118
 100000000  99943399    -0.06  40593   53.72787     0.00127
-
+```
